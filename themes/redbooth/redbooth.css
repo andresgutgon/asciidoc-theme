@@ -1,0 +1,170 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
+@import url('normalize.css');
+
+/* Overrides */
+h1, h2, h3, h4, h5, h6, div.title, caption.title, thead, p.table.header, #toctitle, #author, #revnumber, #revdate, #revremark, #footer {
+  font-family: "Open Sans", Arial, sans-serif;
+}
+/* END of Overrides */
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 13px;
+  color: #333;
+}
+a, a:hover, a:focus, a:visited {
+  color: #10a5b9;
+  text-decoration: none;
+}
+a:hover {
+  color: #0CD0EB;
+  text-decoration: underline;
+}
+a:visited {
+  color: #BDCCCE;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #333;
+  border-bottom: 0;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.3em;
+  line-height: 1.2;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px dashed #888;
+}
+
+strong {
+  color: #333;
+}
+
+ul {
+  padding: 0 0 0 2em;
+}
+
+#footer {
+  border-top: 4px solid #f0f0f0;
+  padding: 1em 0;
+  text-align: center;
+}
+#footer #footer-text {
+  float: none;
+  display: inline;
+  color: #888;
+  font-weight: 300;
+}
+/* Layout */
+.article {
+  -webkit-transition: width 200ms linear;  /* Chrome 1-25, Safari 3.2+ */
+     -moz-transition: width 200ms linear;  /* Firefox 4-15 */
+       -o-transition: width 200ms linear;  /* Opera 10.50–12.00 */
+          transition: width 200ms linear;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  padding: 0 5%;
+  width: 90%;
+}
+
+#header {
+  padding: 10px 0 0 0;
+  position: relative;
+  min-height: 75px;
+}
+
+#header:before {
+  content: "";
+  height: 60px;
+  width: 228px;
+  background-image: url("images/rb-logo.png");
+  background-size: 228px 60px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  display: block;
+}
+
+#header h1 {
+  border-bottom: 1px solid #ccc;
+  font-weight: 300;
+  margin: 10px 0;
+  color: #888;
+  line-height: 1.5em;
+  padding: 0 0 10px 0;
+}
+
+/* Toc */
+#toc {
+  border: 1px solid #f0f0f0;
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  background-color: #f7f7f7;
+}
+
+#toctitle {
+  margin: 0 0 10px 0;
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #f3f3f3;
+  color: #888;
+  font-weight: 300;
+  font-size: 1.4em;
+}
+
+.toclevel1 {
+  padding: 0 20px
+}
+
+/* Content */
+div.sidebarblock > div.content {
+  background-color: #f3f3f3;
+  border: 1px solid #f0f0f0;
+  padding: 5px 20px;
+}
+div.sidebarblock > div.content .title {
+  color: #888;
+  font-weight: 300;
+  font-size: 1.4em;
+}
+div.content div.title:first-child {
+  margin-top: 0.5em;
+}
+.admonitionblock .icon img:before  {
+  width: 24px;
+  height: 24px;
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+  /* Layout */
+  .article {
+    padding: 0 20%;
+    width: 60%;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+  /* Layout */
+  .article {
+    padding: 0 25%;
+    width: 50%;
+  }
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5),only screen and (min-device-pixel-ratio : 1.5) {
+  #header:before {
+    background-image: url("images/rb-logo@2x.png");
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (max--moz-device-pixel-ratio: 2) {
+  #header:before {
+    background-image: url("images/rb-logo@2x.png");
+  }
+}
+
+

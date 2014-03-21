@@ -1,0 +1,1776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title>Redbooth On-Premise</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+<link href="/themes/redbooth/redbooth.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/themes/redbooth/redbooth.css" media="screen" rel="stylesheet" type="text/css" /></head>
+<body class="article">
+<div id="header">
+<h1>Redbooth On-Premise</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_build_893a5a6">Release: 5.1.9-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> 2013-12-02</p></div>
+</div></div>
+<h4 id="_new_in_this_release" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Feature</strong> Incoming email refactor. Now a per-project account is allowed
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Using Ruby 2.0.0 for greater performance
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Add disks or resize main disk to more than 1GB
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Allow larger uploads
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Much improved search indexing
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Periodicity of incoming email fetch is configurable via Manager
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Migrate local DB engine to MariaDB
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>     Configuring external DB is fully working now
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>     Ported many little fixes/changes from Cloud version
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes">Post Install Notes</h4>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/important.png" alt="Important" />
+</td>
+<td class="content">Session cookie has changed, so all users will need to login again</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-893a5a6.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_e3d2afd">Release: 5.1.8.7-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> 2013-10-09</p></div>
+</div></div>
+<h4 id="_new_in_this_release_2" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fix</strong>     Quote enterprise yaml options
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>     No report during install process
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_2">Post Install Notes</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Save incoming/outgoing config forms without changes
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-e3d2afd.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_6b981c7">Release: 5.1.8.6-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> 2013-10-07</p></div>
+</div></div>
+<h4 id="_new_in_this_release_3" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fix</strong>     Lighter reports
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>     Parse email config correctly
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_3">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-6b981c7.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_3303ef8">Release: 5.1.8.5-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> 2013-09-09</p></div>
+</div></div>
+<h4 id="_new_in_this_release_4" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Change</strong> Default license is now 1 seat and 60 days
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>    Use bind method from Net::LDAP and avoid fetching all data
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>    Increase LDAP timeout when binding
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>    Pull only needed attributes from LDAP
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_4">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-3303ef8.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_3311b76">Release: 5.1.8.4-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> 2013-09-04</p></div>
+</div></div>
+<h4 id="_new_in_this_release_5" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Use embedded email server by default for outgoing email</strong>
+</p>
+</li>
+<li>
+<p>
+<strong>Fix small email bug</strong>
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_5">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-3311b76.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_35e097c">Release: 5.1.8.3-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> 2013-07-04</p></div>
+</div></div>
+<h4 id="_new_in_this_release_6" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fix no authentication option for outgoing email regression </strong>
+</p>
+</li>
+<li>
+<p>
+<strong>Incoming Email test will use Reply-To field if set</strong>
+</p>
+</li>
+<li>
+<p>
+<strong>Fix qmail header parsing error in incoming email</strong>
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_6">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-35e097c.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_d574558">Release: 5.1.8.2-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> 2013-06-08</p></div>
+</div></div>
+<h4 id="_new_in_this_release_7" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Simplified email config
+</p>
+</li>
+<li>
+<p>
+Added the ability to test config email on-demand
+</p>
+</li>
+<li>
+<p>
+Filter unused network ports
+</p>
+</li>
+<li>
+<p>
+Fix dangling first user if skip onboarding
+</p>
+</li>
+<li>
+<p>
+Remove users from all organizationss when deleting permanently
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_7">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-d574558.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_278747c">Release: 5.1.8.1-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> May 21, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_8" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix issue preventing creation of new organizations
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_8">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-278747c.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_e8a3652">Release: 5.1.8-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> May 17, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_9" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Added support for Box
+</p>
+</li>
+<li>
+<p>
+Switched manager authentication to use cookies
+</p>
+</li>
+<li>
+<p>
+Add support for multiple NIC&#8217;s
+</p>
+</li>
+<li>
+<p>
+Allow resizing/adding virtual machine disks
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_9">Post Install Notes</h4>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/important.png" alt="Important" />
+</td>
+<td class="content">The authentication mechanism of the manager has changed. (Now using cookies)</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/warning.png" alt="Warning" />
+</td>
+<td class="content">Your existing manager credentials will be reset to admin/admin.
+Please set new manager credentials as soon as possible.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-e8a3652.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_acc18af">Release: 5.1.7.1-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> April 17, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_10" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Hardened system against known vulnerabilities
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_10">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-acc18af.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_0fc0994">Release: 5.1.7-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> April 16, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_11" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Added support for http proxy
+</p>
+</li>
+<li>
+<p>
+Better system-wide security
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_11">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-0fc0994.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_ab15dab">Release: 5.1.6-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> April 10, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_12" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Updated 3rd-party software with latest security patches
+</p>
+</li>
+<li>
+<p>
+Trial no longer limits number of projects.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_12">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-ab15dab.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_6aeef14">Release: 5.1.5-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> April 5, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_13" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Fix edge-case issue in incoming email.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_13">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-6aeef14.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_e84f6d8">Release: 5.1.4-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> April 4, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_14" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Product name change from Enterprise to On-Premise.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_14">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-e84f6d8.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_be0857b">Release: 5.1.3-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> March 11, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_15" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Enable near-expiry alerts for license.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_15">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-be0857b.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_c971302">Release: 5.1.2-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> March 6, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_16" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Enable near-expiry alerts for license.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_16">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-c971302.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_0fd60d4">Release: 5.1.1-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> March 4, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_17" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Minor fixes
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_17">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-0fd60d4.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_fc801d7">Release: 5.1.0-blinking-planetary-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> March 4, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_18" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Added system alerts to Manager
+</p>
+</li>
+<li>
+<p>
+Can now configure network (static/dhcp/dns)
+</p>
+</li>
+<li>
+<p>
+Major internal changes
+</p>
+</li>
+<li>
+<p>
+Can now generate system reports for support
+</p>
+</li>
+<li>
+<p>
+Bumped Teambox to latest version in cloud.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_18">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-fc801d7.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_1e45f26b">Release: 4.4.8-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> Febuary 13, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_19" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Minor fixes to incoming email
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_19">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-1e45f26b.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_725dcf9">Release: 4.4.7-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> Febuary 06, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_20" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Added End User License Agreement
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_20">Post Install Notes</h4>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/important.png" alt="Important" />
+</td>
+<td class="content">You will need to accept the EULA to continue using Teambox On-Premise.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/warning.png" alt="Warning" />
+</td>
+<td class="content">If you decline the EULA, the system will become unusable and you will
+have to download a new VM!</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-725dcf9.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_1c822e22">Release: 4.4.6-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> January 23, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_21" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Added remote support to the Manager
+</p>
+</li>
+<li>
+<p>
+Minor fixes to incoming email.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_21">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-1c822e22.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_aca57859">Release: 4.4.5-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> January 16, 2013</p></div>
+</div></div>
+<h4 id="_new_in_this_release_22" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Add support for smtp relays to incoming email.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_22">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-aca57859.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_ecf5c09e">Release: 4.4.4-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> December 28, 2012</p></div>
+</div></div>
+<h4 id="_new_in_this_release_23" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Minor fixes to incoming email.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_23">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-ecf5c09e.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_721de269">Release: 4.4.3-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> December 28, 2012</p></div>
+</div></div>
+<h4 id="_new_in_this_release_24" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Minor fixes to incoming email.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_24">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-721de269.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_d41862d8">Release: 4.4.2-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> November 9, 2012</p></div>
+</div></div>
+<h4 id="_new_in_this_release_25" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Minor fixes.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_25">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-d41862d8.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_b9d26e6f">Release: 4.4.1-ghost-of-jupiter-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> November 9, 2012</p></div>
+</div></div>
+<h4 id="_new_in_this_release_26" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Added support for incoming email.
+</p>
+</li>
+<li>
+<p>
+Added the ability to rollback a package upgrade.
+</p>
+</li>
+<li>
+<p>
+Added support for enabling/disabling maintenance page
+</p>
+</li>
+<li>
+<p>
+Added support for using remote Mysql databases.
+</p>
+</li>
+<li>
+<p>
+Bumped Teambox to same version as cloud.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_26">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-b9d26e6f.html">Changelog</a></td>
+</tr></table>
+</div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_efdae9f">Release: 4.3.1-thors-helmet-entp</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p><strong>Date:</strong> September 3, 2012</p></div>
+</div></div>
+<h4 id="_new_in_this_release_27" class="float">New in this release</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+First offical release under the name Teambox Enteprise.
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_post_install_notes_27">Post Install Notes</h4>
+<div class="paragraph"><p>No action required.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip" />
+</td>
+<td class="content">Learn about all the changes in this build here: <a href="/doc/changelog-efdae9f.html">Changelog</a></td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2014-03-21 10:47:09 CET
+</div>
+</div>
+</body>
+</html>

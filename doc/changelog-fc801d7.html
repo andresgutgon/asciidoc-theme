@@ -1,0 +1,5165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+<link href="/themes/redbooth/redbooth.css" media="screen" rel="stylesheet" type="text/css" /></head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_build_fc801d7">Build  fc801d7</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><div class="title">Release Info</div><p><strong>Version:</strong> 5.1.0-blinking-planetary-entp</p></div>
+<div class="paragraph"><p><strong>Date:</strong> March 4, 2013*</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/240px-NGC_6826HSTFull.jpg" alt="Planetary Nebula Blinking Planetary" width="64" />
+</div>
+</div>
+</div></div>
+<h3 id="_changelog" class="float">Changelog</h3>
+<div class="sect3">
+<h4 id="_puppet_fc801d7">Puppet (fc801d7)</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Feature</strong> Added god for process monitoring
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Added cronjob for disk usage check
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Added god config for resque monitoring
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Added the reports script
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Adding manager customization file
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Also monitor forked jobs
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Autoaccept EULA if an already configured instance
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Check disk usage every 5 minutes
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Manager now monitored by God
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Run network-config on first boot
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Use LVM for VM partitioning
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Use one primary partition for LVM instead of and extended
+</p>
+</li>
+<li>
+<p>
+<strong>Imporovement</strong> Better monitoring of unicorn workers
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Bash colours for entp motd
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Reload manager in puppet, don&#8217;t restart
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Rewrite 502 bad gateway errors to maintenance page in enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Use custom location in nginx for package uploads
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Use shared manager config path to symlink teambox license
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Added logrotate config file for teambox and teambox-manager
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Adding cronjob to check licence expiry
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Adding missing extract-revision powertool
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> After packaging entp, create package revision file
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Call motd script from within enterprise network powertool
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Changed title in enterprise release notes
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Convert teambox&#8217;s god config files into puppet templates
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Customize gpg key file
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Don&#8217;t redirect to manager when an error appears in teambox
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Generate env_customization file on shared config teambox path if customization var is present
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Increase restart_grace value
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Remove redundant teambox restarting markers
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Revert "teambox enterprise network powertool is now just a symnlink to motd"
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Send reload to proper manager upstart job
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Upload package revision file after uploading package
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Use force-stop instead of stop for sphinxsearch
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Use restart script from teambox-manager
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> teambox enterprise network powertool is now just a symnlink to motd
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Add a fix for old enterprise builds not deleting package
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Add fix script to puppet script
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Add notifier to all the monitored services
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Added more folders and commands
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Added more info when killing processes. Added PID_DIR variable to resque&#8217;s upstart config
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Adding EULA declined teambox template
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Adding script to switch to teambox user
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Apply fixes during puppet execution
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Avoid errors if any env file is empty
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Change god execution order
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Change puppet order execution
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Correct libc6 i386 package call
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Correct revision extraction powertool
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Disable caching of index.html in enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Disable login. Respawn initial menu script
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Disable timeouts on Exec stanzas in enterprise manifests
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Do not ensure tty1 is running
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Don&#8217;t set uid/guid in manager web 1 upstart conf
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Ensure /var/log/teambox path exists and is owned by teambox user
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Ensure /var/log/teambox-manager path exists and is owned by teambox user
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Ensure pidfile is removed before starting the process again
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Ensure powertools are installed before restarting manager
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Execute enterprise fixes using teambox user
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix and include teambox gpg key manifest
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix fix script for removing package
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix multiple concurrent starts and fix sudo permissions issue
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix some issues for manager-god
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix unicorn grep
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix use of resque god template
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fixing disable upstart fix
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fixing link to logo in startup_first_time.html
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Grep exactly unicorn processes, execute as root, show all processes
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> In entp standalone manifest, restart god AFTER fixes are run
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Increase proxy_send/read timeouts for package location in entp nginx
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Install highline gem, needed for network-config script
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Introduce manager fix: Always allow stopping/starting teambox if it&#8217;s running
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Manage update-motd-d dir and ensure only enterprise motd is present
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Modify scripts that apply fixes
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Move reports script to powertools. Report owner to teambox
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> No need to remove teambox restarting markers in puppet runs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Only execute fixes if they exists. Also log output
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Only mantain the last 5 reports
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Propagate puppet exit code in puppet powertool
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Redirect stderr to /dev/null
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Remove extraneous line
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Remove installed package from /data/packages once installed
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Remove old enterprise site notes
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Remove trailing slash in $manager_shared_path
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Rename enterprise/site/history to release_notes
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Renamed WebhookAuth class. Fixed teambox category. Fix rescue block
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Restore login in entp motd
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Set the correct path for cronjobs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Slim down enterprise MOTD
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Sudo to teambox user when restarting manager via upstart
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Use floating titles in entp release notes
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Wait until worker is forked and up
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Wait until worker starts listening again
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> fix highline gem installation
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Added SQLite3 test
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Added database tests. Minor changes to redis tests
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Added memcached tests. Added grep -v bats to all greps
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Added more redis-server tests
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Added nginx, sphinx and god rests.
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Adding bats tests for teambox puppet enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Adding manifest to describe nodes that can do acceptance testing of enterprise manager
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Adding missing bats test-run file
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Fix final failing entp bats tests
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Fix puppet bats tests
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> God tests has to be the last
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Refactor database tests
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Refactor god tests and add test helpers
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Refactor memcached and nginx tests
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Refactor redis and sphinxsearch tests
+</p>
+</li>
+<li>
+<p>
+<strong>Test</strong> Script permissions
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_teambox_b3acb0f">Teambox (b3acb0f)</h4>
+<div class="sect4">
+<h5 id="_5_0_18_2013_02_27">5.0.18 / 2013-02-27</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> ability to embed Dropbox images to comments
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> autocomplete emails from contacts in onboarding
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> autocomplete from GContacts from invite box
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> payment gateway id on the subscription reports
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> time tracking to the edit comment form
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> Dropbox 2 way sync integration
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> edge cases on people management
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> facebook app link connect
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> infojobs customizations
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> threads pagination
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> various issue with API caching, resolve mostly problems with editing
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> wrong position of edit title form in a conversation
+</p>
+</li>
+<li>
+<p>
+**Make invite people button clicable in french interface
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_17_2013_02_25">5.0.17 / 2013-02-25</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> placeholder copy in an edit task textarea
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> watchers not being added on mentions
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> notes reverting to the first version
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_16_2013_02_25">5.0.16 / 2013-02-25</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> LDAP/Active Directory provider support
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> confirmation pop up on delete account when user has active subscriptions
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> counters to task views in dashboard
+</p>
+</li>
+<li>
+<p>
+<strong>Changed</strong> config notifications url in daily digest email
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> google attachments with question marks
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> keyboard navigation in dashboard
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> missing translation in bounce emails
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> privacy issues
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> problems logging in with invalid first names
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> thumbnails not loading (regression last version)
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> update comments in dashboard conversation
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong> on boarding allowing users to exit the process
+</p>
+</li>
+<li>
+<p>
+<strong>Improve</strong> the comment form with better copywriting
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_15_2013_02_20">5.0.15 / 2013-02-20</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> email display for newly invited users
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> an issue with the pinned projects in the sidebar
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> dashboard displaying private notifications
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> incoming emails with non-ASCII headers
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> google attachments name ???
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> Notifications to update times automatically
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> caching
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> the assigned selector to choose recently invited users
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_14_2013_02_18">5.0.14 / 2013-02-18</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Feature</strong> Autocompleter now scans for login and full name
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> dashboard not loading last comment
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> dashboard loader getting stucked
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> cursive text "ok" in save button on title task form.
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> public url not being selectable in firefox
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> rendering comments in ascending order
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> the thread comments order in recent activity
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> title form of conversations in dashboard.
+</p>
+</li>
+<li>
+<p>
+<strong>Changed</strong> Reverted the "add read-only permissions to everybody" behaviour for google drive
+</p>
+</li>
+<li>
+<p>
+<strong>Changed</strong> Truncate delete task popup title
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_13_2013_02_13">5.0.13 / 2013-02-13</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> incorrect display of checkboxes in invite members pop up in IE9
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> loading spinner when a photo is uploaded
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> some german translations
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> "Welcome" screen to be adialog
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> attachments message errors
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> dashboard by displaying network errors when marking notifications as read
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> onboarding by preventing double submits for public pages
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> the internationalization performance
+</p>
+</li>
+<li>
+<p>
+<strong>Updated</strong> and simplified comments edition
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_12_2013_02_11">5.0.12 / 2013-02-11</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> exceptions on login desktop applications
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issue of missing comments on dashboard tasks &amp; conversations
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> long names on Google Docs Attachments
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> share uploads/folders/pages to work in non webkit browsers
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> sidebar favicons in grayscale in firefox
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> feature intro for Files
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_11_2013_02_06">5.0.11 / 2013-02-06</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> ellipsis to file names attached in task
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> loading indication on comment add for attached image thumbnail
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> a conflict between saving and upload file in notes
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> invite user from task in All Tasks with tasks in different projects
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> some rendering issues in files sections
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> the used users in organization message, now it gets updated when adding any user to the organization
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> the validation bug that didnt allow adding externals when the organization was full
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> translations in login page
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> updating users now will use chargify credit if any
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> watchers dialog in mountain lion
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> wrong label for calendar subscriptions
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> ordering pages was creating activities
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> dashboard task order
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> dashboard not updating tasks and conversations accross the client
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> tasks being expanded on clicking them on the dashboard
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> loading time
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_10_2013_02_04">5.0.10 / 2013-02-04</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> a All Task filter with numeric tags
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> a issue breaking lines in comments for non-ASCII encodings
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> blue gradients on the subscriptions page
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issue with posting comments with uploads
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_9_2013_01_31">5.0.9 / 2013-01-31</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> a faster route to log in with Google auth
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> task url to exported ical calendars
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> Firefox input problem in confirm profilet
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> placeholder for IE9 for onboarding process
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> window title + breadcrumbs in dashboard
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> breakline issues in support emails
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> print not working on chrome
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> task lists to not show if a task was assigned to someone who left the project
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> key shortcuts to not conflict on having multiple pop ups open
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong> OpenID login button from login
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_8_2013_01_29">5.0.8 / 2013-01-29</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> link to feedback forum on settings feedback popup
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> Turkish translations for dashboard
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issue of missing comments on dashboard tasks &amp; conversations
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> edit task title button was overlapping the input
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> a login issue after reset password on mobile
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> custom apps icons on the sidebar for firefox
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> permission problems with google drive
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> reloading task lists was not re-applying the filters
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> renaming task lists was displaying resolved tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> rendering issues after editing comments
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> resolved tasks showing after changing sections
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> privacy issues on create tasks or conversations
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> tasks with google docs not opening
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> the invitation box to not show the option to invite to the organization if the user is not admin
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> some issues exporting projects
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> integrations section to always show the email you have linked
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> sidebar to show All Tasks over Recent Activity
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_7_2013_0_28">5.0.7 / 2013-0* -28</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> an onboarding process to set up your organization
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> handling of oauth login and signup
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> invitations to be auto-accepted so its possible to start working with invited users
+</p>
+</li>
+<li>
+<p>
+<strong>Simplified</strong> invitation process for new users
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_6_2013_01_21">5.0.6 / 2013-01-21</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Improvement</strong> Accept longer passwords (up to 255 chars)
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> condition to gantt tasl_list query. Now arent showing empty tl.
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> logo on custom Apps in Sidebar.
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> search filter selector to "no results page"
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Disable force_approval prompt for Google OAuth 2
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Display only not archived task lists in "move to" dialog
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Enabled unwatch user directly clicking on link from email
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> broken page linkning on public pages
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> [show completed task] button in an archived task list
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> attach icon for Notes. It was broken in Chrome.
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> background color mode in "pink color".
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> comment options disapearance when add a new comment
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issues inserting links in notes
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issues with Dropbox integration
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issues with relative dates in tasklists templates
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> menu settings display when a chat is enabled
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> scroll when user clicks in kanban task list cancel button (of new task)
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> status change in dashboard for a task (no longer disappears after resolving)
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_5_2013_01_17">5.0.5 / 2013-01-17</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Feature</strong> Dashboard feature
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> Hastag parser to Dashboard Notificartions Task thread.
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> option to edit the name appearing on the invoices
+</p>
+</li>
+<li>
+<p>
+<strong>Changed</strong> "attach icon" and "link other page" icon in Notes Tool Bar.
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> Kanban view. Now archived Task lists display inline width active task list.
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> organization product_name on reports
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> task list order issue introduced by last release
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> wrong name appearing on the invoices
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong> Chartbeat heartbit
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_4_2013_01_15">5.0.4 / 2013-01-15</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> Printable Calendar
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> error message in the filepicker dialog when it fails
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> plain background color to background picker
+</p>
+</li>
+<li>
+<p>
+<strong>Disabled</strong> teambox in enterprise if system time has been tampered with.
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> Api1 project creation when the organization can not be created or have reached the subscription limits
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> a issue updating profile settings
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> an issue in the people section when inviting new users
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> commenting issues in dashboard + other small improvements
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> project display arrow in gantt
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> project update without owner
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> reordering resolved Tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> sidebar row buttons to be full-row clickable
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> some failing project updates
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> text "Show less Apps&#8230;" changed to "Show fewer Apps&#8230;"
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> the notes privacy dialog to be able to change the privacy
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> All-Tasks view performance
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> dashboard headers with dark background
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> dashboard scrolling issues
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> handling of "missing" notifications
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> task lists performance
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> tasks filtering performance
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_3_2013_01_09">5.0.3 / 2013-01-09</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Improved</strong> notifications API
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> a notification preview for notes
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> date i18n for russian language
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> dropdown to download and preview for non-image uploads in comments
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> preview button in an unploaded file view
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> creating new tasks under a task list was adding whitespace
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> dates to be displayed correctly in hebrew
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> emails to not render the font correctly in some windows clients
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> hebrew translations, months were not displayed correctly
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> infojobs login page
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> member with QR enabled where not able to see their details
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> renaming tasks was hiding attachments
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> several missing assets
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> several missing images
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> wrong gantt task positions
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_2_2013_01_07">5.0.2 / 2013-01-07</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Improved</strong> teambox loading time and performance (assets caching)
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> teambox to serve smaller (minified) assets
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_1_2013_01_07">5.0.1 / 2013-01-07</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> available users for legacy and canceled subscriptions
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> calendar dates issues (showing tasks in the past)
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> emoji styles in emails
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> filepicker render issue when no files are found
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> rendering issue in watchers dialog (showing privacy options multiple times)
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> attachments to not show duplicates
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> attachments to show better errors
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_5_0_0_2013_01_02">5.0.0 / 2013-01-02</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Renamed</strong> <em>this week</em> filter to <em>next 7 days</em>
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> syncing tasks on google calendar
+</p>
+</li>
+<li>
+<p>
+<strong>Enabled</strong> push for all production users.
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> files to use a shorter hash for duplicated filenames
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_33_2012_12_27">4.4.33 / 2012-12-27</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> links to users profiles in organizations memberships page
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> "blank title" issue on creating 2 tasks under the same task list
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> exception originated by outgoing email without comments
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issue in the API returning empty arrays like strings
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issue with missing moment js languages
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> moving tasks to other single-tasklist-project issue
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> task lists to display all the archived tasks correctly
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> watchers dialog privacy for non creator users
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> move tasks to not redirect unless you are in a "show" page
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> watchers dialog style
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong> corrupted history for Notes
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> a user alert inside Teambox when the license is about to expire
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> Salesforce Lead to update only unconfirmed Company names
+</p>
+</li>
+<li>
+<p>
+<strong>Updated</strong> Salesforce Lead to update only unconfirmed Company names
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_32_2012_12_20">4.4.32 / 2012-12-20</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> <code>metadata</code> resources in the API
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> salesforce link of the buyer in Spy tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Enabled</strong> push notifications for everybody
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> Dropbox 2 way sync not saving organizations
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> calendar image placing before full redesign
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issue on dashboard where notifications of deleted tasks/conversations where not shown
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> minor issues on toggling the comment form
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> move between notification groups correctly when using keyboard shortcuts
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> some styles in task lists
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> reports
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> double comments on toggling the resolve checkbox
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> long titles in task_lists
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> <code>exception hub</code> javascript exception tracking
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong> <code>colamine</code> javascript exception tracking
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> the home video and the header for it
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> Omniauth to use 1.1.1 instead of our own branch
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> move tasks: Now you can move tasks within the same project
+</p>
+</li>
+<li>
+<p>
+<strong>Manually</strong> handle job retry from emails
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> a new component: Watchers Dialog
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_18_2012_11_13">4.4.18 / 2012-11-13</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> javascript exception tracking <code>coalmine</code>
+</p>
+</li>
+<li>
+<p>
+<strong>Show</strong> all task list templates (all orgs) in the dropdown
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong> deployer/next nodes from new-relic
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> notifications performance
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> assets performance with better caching strategy
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> notification styles
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> emails being sent 3 times by handling exceptions properly on email jobs.
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> another XSS security issue
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> tips and redirection path for thrid party authentication
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> ordering issue in recent activities
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> some bugs with pages ordering
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> bugs on rename task/thread
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> race conditions on jobs
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_17_2012_11_09">4.4.17 / 2012-11-09</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Feature</strong> New Dashboard (only available for the Teambox org)
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Backbone now waits until has fetched <code>My tasks</code> to start the application
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> dropbox exception on removing projects
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> issue opening a task in a new tab
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> avatar APIv2 endpoint for avatars, by id or login
+</p>
+</li>
+<li>
+<p>
+<strong>Ensure</strong> same assets timestamp accross instances.
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> Notifications for APIv2
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> xlsx exports in enterprise
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_16_2012_11_08">4.4.16 / 2012-11-08</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> moving archived tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> XSS vulnerabilities
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> <code>/enterprise</code> url for enterprise documentation
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> date bar morning/afternoon problem in Gantt
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> Organization seats to salesforce leads
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> inflector: Wrong <code>this</code> usage and polluting underscore
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong> limit on permalink length that is causing random permalinks
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> keystroke issue in quick conversation dialog
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_15_2012_11_06">4.4.15 / 2012-11-06</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>New</strong> Sphinx configuration: Allows searchable notes and searchable hashtags
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong> using dots as incoming email separator
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> print tasks to hide the global settings menu and render proper hashtags
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong> updating task lists with dead users
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_14_2012_11_05">4.4.14 / 2012-11-05</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Avoided</strong> duplicated errors in commentform
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> bugs in the Conversation watchers warning
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> arrows in the datepicker
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> The datepicker shows now before and after months
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Now calendar fetch tasks from before and after months
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> german translation (resolved word)
+</p>
+</li>
+<li>
+<p>
+<strong>Task</strong> list templates improvements (sorted by name and better performance)
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> updating tasks with dead users
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> styles for hashtags
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_13_2012_11_02">4.4.13 / 2012-11-02</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> feature introduction for Gantt
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> conversation double rendering
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> forgot your pasword page for mobile
+</p>
+</li>
+<li>
+<p>
+<strong>Remember</strong> status in quick task after update project or tasklist
+</p>
+</li>
+<li>
+<p>
+<strong>Forced</strong> cache cleanup on reordering pages
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> export xlsx for russian projects
+</p>
+</li>
+<li>
+<p>
+<strong>Show</strong> a warning when an user is trying to create a conversation without watchers
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> get the most out of teambox&#8230; again
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> expandify
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_12_2012_10_31">4.4.12 / 2012-10-31</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> bootstrap node Jenkins job
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> the copy "refresh after changing language" confirm box
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> broken initial steps
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Tags in tasks go to unarchived search
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong> tasks in the task list view updates now the filters
+</p>
+</li>
+<li>
+<p>
+<strong>Don&#8217;t</strong> redirect user to task after convert conversation
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> utm values in users, organizations and salesforce leads
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_11_2012_10_30">4.4.11 / 2012-10-30</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> print tasks with long task list titles
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> downloading PDF&#8217;s encoding issues
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> download files in Safari without blank tabs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> the invite suggestion submit button copy
+</p>
+</li>
+<li>
+<p>
+<strong>Several</strong> fixes on the move tasks feature
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_10_2012_10_29">4.4.10 / 2012-10-29</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Improvement</strong> Box items are now attachments and uses filepicker
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Overhauled activities API to avoid N+1
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> AR cache issue with conversations update
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Descending comments for the new users
+</p>
+</li>
+<li>
+<p>
+<strong>Update</strong> emoji code, more optimal, new emojis
+</p>
+</li>
+<li>
+<p>
+<strong>Reject</strong> all private if watchers is nil (fixes bug in gantt)
+</p>
+</li>
+<li>
+<p>
+<strong>Mark</strong> teambox unstartable when no connection to db
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong> non supported languages
+</p>
+</li>
+<li>
+<p>
+<strong>Improves</strong> sphinx tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed </strong>ever growing log
+</p>
+</li>
+<li>
+<p>
+<strong>Staging</strong> capistrano improvements
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_9_2012_10_24">4.4.9 / 2012-10-24</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fix</strong> gefco bookmark authentication with correct module
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong> hashtags regex that was extracting tags inside a word
+</p>
+</li>
+<li>
+<p>
+<strong>New</strong> translations
+</p>
+</li>
+<li>
+<p>
+<strong>Show</strong> modal maintenance dialogue on any 503 Service Temporarily
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> assing user with #username on incoming email
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_8_2012_10_22">4.4.8 / 2012-10-22</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong> new pictures for the website
+</p>
+</li>
+<li>
+<p>
+<strong>add</strong> Expandify to settings menu
+</p>
+</li>
+<li>
+<p>
+<strong>Route</strong> /developers to the API community project
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> extra-margin-bottom for H3 in features
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> public 404 page for single notes
+</p>
+</li>
+<li>
+<p>
+<strong>Improve</strong> Notebook sharing UI
+</p>
+</li>
+<li>
+<p>
+<strong>Improve</strong> note sharing interface &amp; security
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong> basic maintenance page for use in enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>Renable</strong> xsendfile support
+</p>
+</li>
+<li>
+<p>
+<strong>Bumping</strong> rack-iframe-transport gem to 0.1.2
+</p>
+</li>
+<li>
+<p>
+<strong>[gantt]</strong> fix scroll bug with today indicator
+</p>
+</li>
+<li>
+<p>
+<strong>remove</strong> content length validation in page model
+</p>
+</li>
+<li>
+<p>
+<strong>[notes]</strong> refactor hardcoded notebook shortcuts to be configurable
+</p>
+</li>
+<li>
+<p>
+<strong>Update</strong> only attribute name if task&#8217;s title changes
+</p>
+</li>
+<li>
+<p>
+<strong>SASS</strong> Refactor
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_7_2012_10_19">4.4.7 / 2012-10-19</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> node-bootstrap refactor
+</p>
+</li>
+<li>
+<p>
+<strong>FiAdded </strong>jenkins test for config files
+</p>
+</li>
+<li>
+<p>
+<strong>FiFix </strong>Dropbox 2 way sync. Was disabled by mistake on disabling enterprise flags
+</p>
+</li>
+<li>
+<p>
+<strong>FiDon&#8217;t</strong> load calls app in enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>FiDisable</strong> js exceptions to exceptional
+</p>
+</li>
+<li>
+<p>
+**FiRack monkey patch for proxy forward is not needed anymore
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_6_2012_10_18">4.4.6 / 2012-10-18</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong> gantt using onSelect that now belongs to the DatePicker module
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> field versions.modifications to LONGTEXT.
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> urgent
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> the incoming_email:prune cronjob that never worked.
+</p>
+</li>
+<li>
+<p>
+<strong>Optimize</strong> user.organizations with indexes on memberships
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong> subscriptions cache
+</p>
+</li>
+<li>
+<p>
+<strong>fix</strong> settings button in IE9
+</p>
+</li>
+<li>
+<p>
+<strong>Node</strong> bootstrap refactor
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_5_2012_10_17">4.4.5 / 2012-10-17</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>New</strong>  copies for loading tips
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  tasks status to change from "urgent" to "no due date"
+</p>
+</li>
+<li>
+<p>
+<strong>vendor</strong> /cache no longer a submodule
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  unhandled plurals on using <code>tm</code>
+</p>
+</li>
+<li>
+<p>
+<strong>Improvements</strong>  and bug fixings on flexible time tracking
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong>  a bug with workload
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_4_2012_10_16">4.4.4 / 2012-10-16</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Multiple</strong> -hashtags
+</p>
+</li>
+<li>
+<p>
+<strong>FIXED</strong>  EPIC BUG 60 + 5 = 605
+</p>
+</li>
+<li>
+<p>
+<strong>No</strong>  limit for password
+</p>
+</li>
+<li>
+<p>
+<strong>Better</strong>  copy placeholder for time tracking
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  to invite organization mbmers from users tab
+</p>
+</li>
+<li>
+<p>
+<strong>Extend</strong>  user names in invitebox dialog
+</p>
+</li>
+<li>
+<p>
+<strong>Workload</strong>  view <a href="http://cl.ly/image/3o2I3T0Q3c0r">http://cl.ly/image/3o2I3T0Q3c0r</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  one click sign up for google auth2
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  google oauth2 authentication
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_3_2012_10_15">4.4.3 / 2012-10-15</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Flexible</strong> -time-tracking
+</p>
+</li>
+<li>
+<p>
+<strong>No</strong>  moar native confirm dialogs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  draft stored on note saved
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  LHM for big migrations
+</p>
+</li>
+<li>
+<p>
+<strong>Biannual</strong>  &#8594; Biennial
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> IE bug
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong> rubyencoder_error_handler
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  layout issue with archived task lists
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  API for email bounces
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  #exception_trace to EmailBounce
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  issues with duplicated buttons in invitebox dialog
+</p>
+</li>
+<li>
+<p>
+<strong>Defensive</strong>  coding on assign selector on the comment form
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  Timetracking filters to export
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  pagination bar at the bottom of Search
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  filter navigation in Search
+</p>
+</li>
+<li>
+<p>
+<strong>Don&#8217;t</strong> render activities if they don&#8217;t have a user relation
+</p>
+</li>
+<li>
+<p>
+<strong>Display</strong>  a list of admins when trying to access the organization view for external
+</p>
+</li>
+<li>
+<p>
+<strong>Show</strong>  any attachments in invalid incoming email emailer template
+</p>
+</li>
+<li>
+<p>
+<strong>Truncate</strong>  incoming email attachments if record too big
+</p>
+</li>
+<li>
+<p>
+<strong>Better</strong>  disabled datepicker styles
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_2_2012_10_10">4.4.2 / 2012-10-10</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Notes</strong>  autosave
+</p>
+</li>
+<li>
+<p>
+<strong>Performance</strong>  improvement: avoid to reevaluate templates again and again
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  urgent tasks that want change to specific due date
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  public projects link
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  git cleanup task to easily clean staled remote branches
+</p>
+</li>
+<li>
+<p>
+<strong>JSlint</strong>  and threshold 45
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_1_2012_10_09">4.4.1 / 2012-10-09</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>New</strong>  much improved Gantt charts
+</p>
+</li>
+<li>
+<p>
+<strong>Don</strong> 't apply non existent server side business rules to javascript models.
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  some weird rendering problems in Firefox
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  datepicker buttons view and specs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  aggregator and subset issue
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  quick search specs, after i18n
+</p>
+</li>
+<li>
+<p>
+<strong>Dropbox</strong>  should use attacher app link
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  watchers bugs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  bug on explorer. Inline block renders whitespace on some browsers
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  dropbox integration unlink if no pro organizations are available
+</p>
+</li>
+<li>
+<p>
+<strong>Attachment</strong> #public_url should use attachers app link
+</p>
+</li>
+<li>
+<p>
+<strong>Unify</strong>  client and server side validation on comment-form
+</p>
+</li>
+<li>
+<p>
+<strong>Do</strong>  not remove oauth token
+</p>
+</li>
+<li>
+<p>
+<strong>Quick</strong>  search i18n
+</p>
+</li>
+<li>
+<p>
+<strong>Don&#8217;t</strong> remove older oauth token when genereate new one
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong>  openid variable was changed (c2c26b99) to has_openid
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> No need to resize uploads async
+</p>
+</li>
+<li>
+<p>
+**Enabled x_sendfile_header
+</p>
+</li>
+<li>
+<p>
+**add /notes route as default instead of /pages
+</p>
+</li>
+<li>
+<p>
+<strong>Refactor</strong>  useless map in state transitions
+</p>
+</li>
+<li>
+<p>
+<strong>Follow</strong>  UI guidelines for hold and assigned tags
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  tasks with long title not being printed correctly
+</p>
+</li>
+<li>
+<p>
+<strong>A</strong>  conversation should accept blank comments if contain a file upload
+</p>
+</li>
+<li>
+<p>
+<strong>Unify</strong>  client and server side validation on the comment form. Fixes issues with multiple tooltips being rendered
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong>  duplicated code in comment form and use the date picker module instead. This solves the issue on clicking a date not closing the dialog automatically
+</p>
+</li>
+<li>
+<p>
+<strong>Ignore</strong>  PSD files
+</p>
+</li>
+<li>
+<p>
+<strong>Instructions</strong>  about fixing the repo
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  to move tasks within the same project.
+</p>
+</li>
+<li>
+<p>
+<strong>Document</strong>  release process in docs/Infrastructure/Deployment.md
+</p>
+</li>
+<li>
+<p>
+<strong>Send</strong>  multipart email every other email in incoming email acceptance test
+</p>
+</li>
+<li>
+<p>
+[gefco] Set custom background
+</p>
+</li>
+<li>
+<p>
+<strong>fixed</strong>  final issues with move tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Using</strong>  same shebang as rest of enterpise scripts
+</p>
+</li>
+<li>
+<p>
+<strong>No</strong>  need for shell arguments to script/enterprise/fetch-incoming-email
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  new pictures for the website
+</p>
+</li>
+<li>
+<p>
+<strong>Placed</strong>  email images on a folder
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  checker Teambox.config.use_analytics for the subscription manager
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  file icons to style guide
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  cancel subscrition with no organizations or multiple organizations
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  files icos css
+</p>
+</li>
+<li>
+<p>
+<strong>little</strong>  improvements over sendbutton
+</p>
+</li>
+<li>
+<p>
+<strong>Revert</strong>  move addOrSet to the base class, does not play well with subset
+</p>
+</li>
+<li>
+<p>
+<strong>Re</strong> -solved the export thing issue
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong>  the task_move transaction assigned bug and added specs
+</p>
+</li>
+<li>
+<p>
+<strong>Remove</strong>  unnecesary people fetch
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong>  legacy code in project model not used anymore
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong>  legacy code on base collection. Moved addOrSet in base collection
+</p>
+</li>
+<li>
+<p>
+[gefco] Translate category descriptions for gefco customization
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  comment about AR require in app/models/incoming_email
+</p>
+</li>
+<li>
+<p>
+<strong>teambox</strong> .local.yml.example configures app_domain
+</p>
+</li>
+<li>
+<p>
+<strong>Should</strong>  be using domain in smtp_settings
+</p>
+</li>
+<li>
+<p>
+[gefco] Decode64 the bid before decrypt to get the credentials
+</p>
+</li>
+<li>
+<p>
+<strong>Don</strong> 't use #body for Mail::Body
+</p>
+</li>
+<li>
+<p>
+<strong>Using</strong>  Bundle.require in run-incoming-email-acceptance-test
+</p>
+</li>
+<li>
+<p>
+<strong>Use</strong>  decoded body in MailEmail
+</p>
+</li>
+<li>
+<p>
+<strong>delivery_method</strong>  set from application.rb
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  invalid email subject translation to use smtp domain
+</p>
+</li>
+<li>
+<p>
+<strong>Reset</strong>  breadcrumb/menu even for reload&#8230;
+</p>
+</li>
+<li>
+<p>
+<strong>Removing</strong>  trimmer config from entp teambox.yml
+</p>
+</li>
+<li>
+<p>
+<strong>Extracting</strong>  trimmer config from teambox.yml to trimmer.yml
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong>  <code>_.f</code>, Added <code>_.flat_map</code> and <code>_.xor</code>
+</p>
+</li>
+<li>
+<p>
+<strong>Refactored</strong>  the client code to use the invitebox <strong>before</strong> sending the move
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  getMissing users in the project model
+</p>
+</li>
+<li>
+<p>
+<strong>Add</strong>  the disable option in sendbutton
+</p>
+</li>
+<li>
+<p>
+<strong>Update</strong>  spec description for gefco bookmarks
+</p>
+</li>
+<li>
+<p>
+<strong>Improve</strong>  gefco bookmark status code
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  require to email_bounce in I::E::Validation
+</p>
+</li>
+<li>
+<p>
+<strong>Ensure</strong>  enough time for first incoming email to arrive
+</p>
+</li>
+<li>
+<p>
+<strong>Renaming</strong>  incoming email acceptance script and adding to enterprise cleanup
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  documentation to run_incoming_email_acceptance_test script
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  incoming email acceptance test
+</p>
+</li>
+<li>
+<p>
+<strong>Using</strong>  #send_with_language_and_organization rather than @send_with_language
+</p>
+</li>
+<li>
+<p>
+<strong>Refactor</strong>  #text/#html in MailEmail
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  explicit require to restful-authentication module in I::E::Record
+</p>
+</li>
+<li>
+<p>
+<strong>Only</strong>  execute asyncmixpanel if use_analytics is true
+</p>
+</li>
+<li>
+<p>
+<strong>Extract</strong>  teambot creation from I::E::Record into User
+</p>
+</li>
+<li>
+<p>
+<strong>Defensive</strong>  coding: Ensure there&#8217;s an array before calling #first
+</p>
+</li>
+<li>
+<p>
+<strong>Reassign</strong>  utf8 encoded string to body instance variable
+</p>
+</li>
+<li>
+<p>
+<strong>Correct</strong>  argument calls to Emailer.send_with_language in I::E::Record#bounce_email
+</p>
+</li>
+<li>
+<p>
+<strong>Removing</strong>  uneeded setup_incoming_email_environment.rb
+</p>
+</li>
+<li>
+<p>
+<strong>Remove</strong>  redundant gemfile from previous incantation of tinbox
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  tinbox (enterprise incoming email fetcher app) as submodule to vendor/apps/tinbox
+</p>
+</li>
+<li>
+<p>
+<strong>Correct</strong>  arguments to AsyncMail in EmailBounce
+</p>
+</li>
+<li>
+<p>
+<strong>Sending</strong>  Emailer#bounce_message async if perform_async is true
+</p>
+</li>
+<li>
+<p>
+<strong>Execute</strong>  invalid incoming email bounce async if possible
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  explicit requires to AsyncEmail
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  #invalid_incoming_email to low_async_mail queue
+</p>
+</li>
+<li>
+<p>
+<strong>Use</strong>  UTF8Encoder in MailEmail#body
+</p>
+</li>
+<li>
+<p>
+<strong>Defensive</strong>  coding for UTF8Encoder
+</p>
+</li>
+<li>
+<p>
+<strong>Assume</strong>  incoming email via imap/pop3 is utf-8
+</p>
+</li>
+<li>
+<p>
+<strong>Correct</strong>  incoming email enable_ssl setting
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  incoming email in enterprise if INCOMING_EMAIL_TYPE is set
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  explicit require to app/modeles/incoming_email.rb
+</p>
+</li>
+<li>
+<p>
+<strong>Use</strong>  ENV.fetch to test which rails environment to use in incoming_email
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  symlink in vendor/bundle/bundler to setup_incoming_email_environment.rb
+</p>
+</li>
+<li>
+<p>
+<strong>Updateed</strong>  hacks doc with rails PR
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  pending example to warn people to run script/enterprise/quick_setup
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  bug where clicking on reload in project show caused a js crash
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong>  lib specs to check providers name
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  acceptance specs in jenkins
+</p>
+</li>
+<li>
+<p>
+<strong>Document</strong>  the entire required_watcher_ids mess
+</p>
+</li>
+<li>
+<p>
+<strong>Comment</strong>  with more details on the mysterious #watcher_ids= touch
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  staled object#watchers relation
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  task/conversation creator to unwatch
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_4_0_2012_10_02">4.4.0 / 2012-10-02</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong>  evil bug with oauth. Class was closed not including auth_hash method
+</p>
+</li>
+<li>
+<p>
+[Gefco] Add the correct encryption key for bookmarks
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  up/down navigation for tasks in list mode
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_8_2012_10_01">4.3.8 / 2012-10-01</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Added</strong>  new dropbox "attach files" integration
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  rss/ical ssl problem and added tests
+</p>
+</li>
+<li>
+<p>
+<strong>app_domain</strong>  can now be configured with env var
+</p>
+</li>
+<li>
+<p>
+<strong>Wrap</strong>  &lt;pre&gt; in emails, limit &lt;img&gt; width
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  specs with correct RAILS_ENV
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong>  privacy toggle breaking the specs and hearts of our dear users
+</p>
+</li>
+<li>
+<p>
+<strong>Minor</strong>  tweaks to the QR code thing
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  invalid dataset for activity on orphan private uploads
+</p>
+</li>
+<li>
+<p>
+<strong>Changing</strong>  the project on a quick add should re render the secondary options
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  status names for tasks xlsx
+</p>
+</li>
+<li>
+<p>
+<strong>Disabled</strong>  observers for enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  incorrect unassigned status name for rejected
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  an explode endpoint to test failures
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Force environment and also compile assets
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong> script/enterprise/assets-precompile
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  an abstraction for Teambox.providers
+</p>
+</li>
+<li>
+<p>
+<strong>Disable</strong>  metrics in enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  IframeTransport encoding problems with the YAML lib
+</p>
+</li>
+<li>
+<p>
+<strong>Correct</strong>  comment for enable_dropbox config setting
+</p>
+</li>
+<li>
+<p>
+<strong>Disable</strong>  dropbox in enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>GEFCO</strong>  customization
+</p>
+</li>
+<li>
+<p>
+<strong>Enabled</strong>  debug mode on production for tb4-next
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong>  task move sweeper
+</p>
+</li>
+<li>
+<p>
+<strong>Move</strong>  tasks invite suggestion
+</p>
+</li>
+<li>
+<p>
+<strong>Cronjobs</strong>  are managed by Puppet
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_7_2012_09_26">4.3.7 / 2012-09-26</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fix</strong>  Pusher connection bug
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  Export tasks to xlsx
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  redirection issue with ICS feed and google calendar (and other?)
+</p>
+</li>
+<li>
+<p>
+<strong>Task</strong>  and task list show now redirects on moving a task
+</p>
+</li>
+<li>
+<p>
+<strong>Redirect</strong>  after task list move on task_list#show and task#show
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  a spinner on move tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong>  private license
+</p>
+</li>
+<li>
+<p>
+<strong>Moved</strong>  emailer_spy storage to mysql
+</p>
+</li>
+<li>
+<p>
+<strong>Optimized</strong>  queues
+</p>
+</li>
+<li>
+<p>
+<strong>Using</strong>  UNICORN_TIMEOUT env var in node-bootstrap
+</p>
+</li>
+<li>
+<p>
+[entp] License endpoint shows expire_date info.
+</p>
+</li>
+<li>
+<p>
+[entp] Refactored /enterprise/email_settings.json
+</p>
+</li>
+<li>
+<p>
+[entp] Refactored /enterprise/license.json
+</p>
+</li>
+<li>
+<p>
+[entp] Tests for shared folders.
+</p>
+</li>
+<li>
+<p>
+[entp] Fixed specs. Allow incoming email is true by default
+</p>
+</li>
+<li>
+<p>
+[entp] Encode script is removed after encoding.
+</p>
+</li>
+<li>
+<p>
+[entp] Removed no longer used script
+</p>
+</li>
+<li>
+<p>
+[entp] Nicer way to pass files to RubyEncoder
+</p>
+</li>
+<li>
+<p>
+[entp] Cleanup should remove History.md
+</p>
+</li>
+<li>
+<p>
+[entp] Do not distribute encode script
+</p>
+</li>
+<li>
+<p>
+[entp] Cleanup should remove google control file
+</p>
+</li>
+<li>
+<p>
+[entp] Disable verbosity on copy
+</p>
+</li>
+<li>
+<p>
+[entp] Enable DEBUG mode on demand
+</p>
+</li>
+<li>
+<p>
+[entp] Use _rubyencoder
+</p>
+</li>
+<li>
+<p>
+[entp] License managed from the manager.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_6_2012_09_21">4.3.6 / 2012-09-21</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fix</strong>  Safari bug with reserved keywords: Replaced <code>super</code> with <code>_super</code>
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  weird "Commentcreated" activities bug
+</p>
+</li>
+<li>
+<p>
+<strong>No</strong>  longer <em>cap enterprise deploy</em>
+</p>
+</li>
+<li>
+<p>
+<strong>jenkins_url</strong>  is again ci.teambox.com
+</p>
+</li>
+<li>
+<p>
+<strong>Initial</strong>  work on deploying to Vagrant Staging Cluster
+</p>
+</li>
+<li>
+<p>
+<strong>Force</strong>  default to "blank" filename for new google docs.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_5_2012_09_20">4.3.5 / 2012-09-20</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong>  eternal organization cache issue
+</p>
+</li>
+<li>
+<p>
+<strong>Showing</strong>  invitation ar model errors in invitebox UI
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  the option to move tasks on recent activity
+</p>
+</li>
+<li>
+<p>
+<strong>Abstracted</strong>  environments
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong>  move tasks
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  email comment partial exception
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  missing CSS on sharing files
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Don&#8217;t show the department/office/supervisor of <em>pruebas.tb</em> for the infojobs customization
+</p>
+</li>
+<li>
+<p>
+<strong>Enable</strong>  perform_async on enterprise
+</p>
+</li>
+<li>
+<p>
+<strong>Allow</strong>  task move to create task list directly
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_4_2012_09_19">4.3.4 / 2012-09-19</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixtures</strong>  should use <em>/assets/logos/&#8230;</em>
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  reports when update seats on manual subscription
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  exception with DropboxJobProjects
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  Rendering errors with daily task reminder
+</p>
+</li>
+<li>
+<p>
+<strong>Improvements</strong>  on dashboard
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> Basic Procfile.example
+</p>
+</li>
+<li>
+<p>
+<strong>Keep</strong>  public uploads in <code>system</code> folder.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_3_2012_09_18">4.3.3 / 2012-09-18</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Add</strong>  Gefco::BookmarksController to login the gefco user by bookmarks
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong>  excape excerpt on threats
+</p>
+</li>
+<li>
+<p>
+<strong>Better</strong>  report of running unicorns
+</p>
+</li>
+<li>
+<p>
+<strong>Refactored</strong>  statsd client
+</p>
+</li>
+<li>
+<p>
+<strong>Updated</strong>  thinking_sphinx:run_in_foreground task.
+</p>
+</li>
+<li>
+<p>
+<strong>Ignore</strong>  generated pidfiles
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong> Endpoint to verify is Search is alive.
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Do not include git repositories in "bundle pack"
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  missing file for enterprise incoming email
+</p>
+</li>
+<li>
+<p>
+<strong>Adding</strong>  Teambox::StatsLogger
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_2_2012_09_17">4.3.2 / 2012-09-17</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fix</strong>  activity logger bug
+</p>
+</li>
+<li>
+<p>
+<strong>Better</strong>  hold status
+</p>
+</li>
+<li>
+<p>
+<strong>Improved</strong>  dashboard
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  some tests for data
+</p>
+</li>
+<li>
+<p>
+<strong>Added</strong>  some tests to verify license and rgloader
+</p>
+</li>
+<li>
+<p>
+<strong>Removed</strong>  <code>BufferedSysloger</code> and use default one.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect4">
+<h5 id="_4_3_1_2012_09_13">4.3.1 / 2012-09-13</h5>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Fixed</strong>  hold tag now shows assigned user&#8217;s name
+</p>
+</li>
+<li>
+<p>
+<strong>Fixed</strong>  subscriptions API to include all subscriptions (from organizations where you are an admin, participant or external)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_manager_f8b68c7">Manager (f8b68c7)</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Feature</strong> Add a Remove package button
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Add <code>reply_to</code> incoming email field
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Add confirmation message when rebooting and powering off
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Add reboot and poweroff options
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Added a script to check disk usage and create an alert to manager
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Added alerts feature
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Adding help section
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Adding support for LDAP to AuthConfig
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Created system section. Grouped system related controllers
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Enable Google Auth 2 and disable Google Hybrid
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Network config in manager
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> Network configuration script for first boot
+</p>
+</li>
+<li>
+<p>
+<strong>Feature</strong> New Report model
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Improve manager restart script
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Add Package.downloaded_package_revision
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Add a max height to EULA display div
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Add alert icon to required pending steps in sidebar
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Added a button to mark all alerts as read
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Adding EmailConfig#remove_app_config
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Adding NoQuotesValidator
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Adding Package.latest_downloadable_revision
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Adding maxlength property on port fields
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Adding regexp based hostname validator
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Adding top end limitation for port validator
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Allow custom releases in Package.download! and Package.new_download_available?
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Allow customization generated license location in licgen
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Allow toggling of package upload form via js
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Always populate password fields
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Always render upload form
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Alwys allow stopping/starting teambox if it&#8217;s running
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Avoid system method override
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Avoid the use of Puppet service to apply changes
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Better ssl usability
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Correct label ids in Incoming Email form
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Customize PackageController#download/ing with a release parameter
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Disable Reset button if not needed in DbConfig
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Ensure we only show the Install button if package present and not same as current revision
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Fix error messages for NoQuotes &amp;&amp; LdapAuthenticationMethod Validators
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Fix google oauth2 help
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Improve db config form buttons
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Improve incoming email form buttons
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Improve messaging in confirm on accept eula
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Indicate a package installation is in progress
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> No more red for non-required pending setup steps
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Now backups via api return url to download in Location header
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Now teambox_restarting? helper checks for single restarting marker
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Only execute db smoke test if config is valid
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Only show "Verify And Apply" button if IncomingEmailConfig is valid
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Only show "Verify and Apply" button if EmailConfig is valid
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Package section usability
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Properly format eula doc
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Reload the page once download is complete
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Rename Save button to Upload. More clear action
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Show Install button only if current package revision differs from downloaded/uploaded revision
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Show Stop Teambox button if Teambox is running before applying rollback
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Show Stop Teambox button if Teambox is running before installing package
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Show notifications in installing layout&#8230;
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Show package installation progress/feedback notifications
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Switch positions of Save/reset buttons
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Update teambox restarting layout
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Updating Downloads::Manager to handle custom releases
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Use a simple text field for email config <em>port</em> field
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Use a simple text field for incoming email config <em>port</em> field
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Use custom package_upload_url helper for upload form action
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Validate DBConfig#host as a valid hostname
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Validate address in IncomingEmailConfig
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Validate both username and password for incoming email
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Validate db config attributes are sanitized
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Validate hostname for ldap provider in AuthConfig
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> Validate no quotes on LDAP base_dn, bind_dn, uid, password
+</p>
+</li>
+<li>
+<p>
+<strong>Improvement</strong> When starting/restarting teambox, write a single teambox restarting marker
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Add config.manager_current_path
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Added Installation.all_revisions
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Adding Teambox::Startable::write_teambox_restarting_marker! &amp;&amp; ::remove_teambox_restarting_marker!
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Additionally stop teambox if eula declined
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Change gets for read in alerts controller
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Change manager restart script
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Disable maintenance mode once teambox is running after a restart
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Disable shell access for the teambox user if EULA declined
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Further tighten teambox account when eula is declined
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Implementing accepting or declining our EULA in UI
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Mark username as required in incoming email config
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Move enable_ssl block to after password in incoming email form
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> No more need for ajax restarting of manager
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Now supervisor just calls restart script
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Once delcined only allow requests to eula declined view
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Only 3 alerts on dashboard and customized table css
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Only trigger Eula::accept/decline in enterprise mode
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Reload unicorn (HUP) rather than restart (USR2) in script/restart
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Remove app config when saving email config
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Remove incoming email app config when saving
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Rename Package.revision to Package.current_revision
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Rename and improve Package.is_download_url_available?
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Rename disk_is_full constant
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Rename <a href="mailto:priority@teambox.com">priority@teambox.com</a> to <a href="mailto:enterprise-support@teambox.com">enterprise-support@teambox.com</a>
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Restart nginx using god in manager
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Toggle maintenance mode before executing Teambox service commands
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Updated EULA copy with Joy&#8217;s revised version
+</p>
+</li>
+<li>
+<p>
+<strong>Change</strong> Using SQLite3 for saving alerts
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Add notice to login after accepting eula
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Added Highline gem to Gemfile and refactor network_config script
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Added db_config and package specs. Change rescuable return value
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Adding :display_name: attribute to outputted yaml of 3rd party providers
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Adding IncomingEmailConfig.application_config_different?
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Adding missing auth controller specs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Adding more ldap integration specs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Adding not-working spexs for removing ldap configuration
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Allow customizing of release in js package download progress
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Always dump changes to email config
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Always dump incoming email even if invalid
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Always redirect to eula no matter the port
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Always save email_config attribute even if empty
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Always save incoming email attribute from form
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Changed some behaviour on DbConfig
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Correct error messages in NetworkHelper
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Correct humanized display of ldap base_dn attribute
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Correct label ids in email form
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Correct warning text in manager
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Create .teambox_unstartable if disk is full
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Deleted puppet route and fixed a spec
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Deleted puppet views
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Does not show upload form when downloading a package
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Don&#8217;t show sidebar warning icon for dashboard if only non-required setup steps left
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix auth config model specs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix eula model spec
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Fix title format in alerts view
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Improve auth config UI
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Merged GPG validation and added license check
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Move LDAP form help into partial
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Only enable relative url root for non-test envs
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Only run Package.install in enterprise environment
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Override ::load method in IncomingEmail
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> PORTS in IncomingEmailConfig are now integers
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Prepare test db for jenkins
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Progress indicator must go after installation completion notification
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Redirect to manager url after package upload if referer is from nginx
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Refactor and fix authconfig integration spec
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Refactor package section to apply rollback from there
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Remove redundant conditional in WebServerRedirects#package_upload?
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Removing redundant message in installing layout
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Renable js in eula layout and improve decline alert message.
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Restructure auth config spec in preparation for LDAP
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Setup db during a jenkins job
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Show a message if uploaded and installed package are the same
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Strip trailing whitespace when reading from package revision file
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Touch is done by init script installed by puppet
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Use \A \Z to check for word endings in hostname validator
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> User name is no longer a required validation in IncomingEmailConfig
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Validate address/domain in EmailConfig
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> Verify gpg package before starting installation
+</p>
+</li>
+<li>
+<p>
+<strong>Fix</strong> config.package_url/package_revision_url are now lambdas
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2014-02-20 17:32:32 CET
+</div>
+</div>
+</body>
+</html>
